@@ -1,7 +1,6 @@
 pytest
 python-dotenv
 requests
+langchain
 langchain-community
-langchain-ollama
 langchain_ollama
-
