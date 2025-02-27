@@ -1,67 +1,37 @@
-
-# venv
+# TamerOnline-Stock 📈
 
 ## Overview
-`venv` is an automated virtual environment setup tool designed to streamline development across Windows, Linux, and macOS. It ensures dependencies are managed efficiently and integrates seamlessly with VS Code.
+TamerOnline-Stock is a **stock price retrieval tool** powered by **Yahoo Finance (yfinance)** and **LangChain**, utilizing the **Ollama3.2** model for intelligent querying. It provides **real-time stock prices** and allows easy interaction via a virtual assistant.
 
 ## 🖼 Screenshots
-![Virtual environment activation](img/screenshot.png)
+![Stock-Price-Agent](img/screenshot.png)
 
-## Features
-- **Cross-platform compatibility**: Supports Windows (`.bat`, `.ps1`), Linux (`.sh`), and macOS.
-- **Automated environment setup**: Detects Python installation, creates, and activates a virtual environment.
-- **Dependency management**: Installs packages from `requirements.txt` and ensures `pip` is up-to-date.
-- **VS Code integration**: Includes a `.code-workspace` file for streamlined project management.
+## Features 🚀
+- **Real-time Stock Prices**: Fetch live stock prices using Yahoo Finance.
+- **AI-Powered Assistant**: Leverages **LangChain** and **Ollama3.2** for smart stock analysis.
+- **Multi-Platform Support**: Works on **Windows, Linux, and macOS**.
+- **Automated Virtual Environment Setup**: Supports Python virtual environments (`venv`).
+- **GitHub CI/CD Integration**: Automated testing and dependency management.
+- **Secure & Efficient**: Implements error handling and retries for stability.
 
-## Prerequisites
-- **Python 3.6+** installed.
-- **VS Code (optional)** for an optimized development experience.
+## Prerequisites 🛠️
+- **Python 3.10+** installed.
+- **Git** installed (for cloning the repository).
+- **Pip** installed and up-to-date.
 
-## Installation and Setup
-### Windows
-#### Using Command Prompt:
-```cmd
-cd path/to/venv
-activate_project.bat
-```
-#### Using PowerShell:
-```powershell
-cd path/to/venv
-.\activate_project.ps1
-```
-
-### Linux/macOS
-```bash
-cd path/to/venv
-chmod +x activate_project.sh
-./activate_project.sh
-```
-
-## Cloning the Repository
-Ensure Git is installed:
-```bash
-git --version
-```
+## Installation 📦
 Clone the repository:
 ```bash
-git clone https://github.com/TamerOnLine/venv.git
-```
-For SSH access:
-```bash
-git clone git@github.com:TamerOnLine/venv.git
-```
-Navigate to the project directory:
-```bash
-cd venv
+git clone https://github.com/TamerOnLine/tameronline-stock.git
+cd tameronline-stock
 ```
 
-## Setting Up the Virtual Environment
-Run the activation script for your OS:
-#### Windows (Command Prompt):
+### Setting up the Virtual Environment
+#### Windows:
 ```cmd
 activate_project.bat
 ```
-#### Windows (PowerShell):
+#### PowerShell:
 ```powershell
 .\activate_project.ps1
 ```
@@ -71,59 +41,72 @@ chmod +x activate_project.sh
 ./activate_project.sh
 ```
 
-## Installing Dependencies
-After activating the virtual environment:
+Install dependencies:
 ```bash
 pip install -r requirements.txt
 ```
 
-## File Structure
-```
-venv/
-├── .github/                 # GitHub workflows and CI/CD
-├── .pytest_cache/           # Pytest cache for test runs
-├── img/                     # Image assets (if applicable)
-├── src/                     # Source code
-├── tests/                   # Test scripts
-├── venv/                    # Virtual environment folder
-├── .env                     # Environment variables
-├── .gitignore               # Git ignore rules
-├── activate_project.bat     # Windows CMD script
-├── activate_project.ps1     # Windows PowerShell script
-├── activate_project.sh      # Linux/macOS Bash script
-├── LICENSE                  # License file
-├── README.md                # Documentation
-├── requirements.txt         # List of dependencies
-├── runtime.txt              # Python runtime version
-└── workspace.code-workspace # VS Code workspace file
-```
-
-## Usage
-### Activating the Virtual Environment
-Once activated, you should see a modified prompt:
+## Usage 🏗️
+### Running the Stock Price Query
+Start the agent:
 ```bash
-(venv) user@machine:~/venv$
+python src/main.py
+```
+Then enter a stock symbol:
+```
+Enter stock symbol (e.g., MSFT, AAPL, TSLA or 'exit' to quit): AAPL
+```
+Output:
+```
+The current price of AAPL is 145.67 USD.
 ```
 
-### Installing Dependencies
+### Running Ollama AI Assistant
+Run:
 ```bash
-pip install -r requirements.txt
+python src/run_ollama.py
+```
+You can now enter any query, such as:
+```
+Ihre Frage: What is the future of AI?
 ```
 
-### Deactivating the Virtual Environment
-To exit:
+## Project Structure 📂
+```
+tameronline-stock/
+├── .github/workflows/   # GitHub Actions for CI/CD
+├── img/                 # Image assets (if needed)
+├── src/                 # Source code
+│   ├── main.py          # Main stock price retrieval script
+│   ├── run_ollama.py    # AI assistant integration
+│   ├── runner.py        # Helper script to manage execution
+├── tests/               # Unit tests
+├── activate_project.bat # Windows activation script
+├── activate_project.ps1 # PowerShell activation script
+├── activate_project.sh  # Linux/macOS activation script
+├── requirements.txt     # Dependencies list
+├── LICENSE              # License file
+├── README.md            # Documentation
+└── runtime.txt          # Python version info
+```
+
+## Running Tests 🧪
+To run tests, use:
 ```bash
-deactivate
+pytest --disable-warnings -v
 ```
 
-## Troubleshooting
-- **Python not found**: Ensure Python 3.6+ is installed and added to the system path.
-- **Activation failure**: Delete the `venv` folder and rerun the activation script.
-- **Permission issues (Linux/macOS)**: Use `chmod +x activate_project.sh` to grant execution permissions.
+## Troubleshooting 🔧
+- **Python not found**: Ensure Python 3.10+ is installed and added to your system PATH.
+- **Stock price not available**: The stock ticker might be incorrect or unavailable on Yahoo Finance.
+- **Permission issues on Linux/macOS**: Run `chmod +x activate_project.sh` to allow execution.
 
-## Contribution
-Submit pull requests or report issues on the [GitHub repository](https://github.com/TamerOnLine/venv).
+## Contributing 🤝
+Feel free to submit pull requests or report issues in the [GitHub repository](https://github.com/TamerOnLine/tameronline-stock).
 
-## License
+## License 📜
 This project is licensed under the MIT License. See [LICENSE](LICENSE) for details.
 
+---
+
+🚀 **Start tracking stock prices today!**
